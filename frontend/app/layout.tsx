@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple.png" />
       </head>
       <body className={poppins.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="police-advisor-theme">
