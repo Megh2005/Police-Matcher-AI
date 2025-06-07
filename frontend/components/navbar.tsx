@@ -28,11 +28,6 @@ export default function Navbar() {
               Find Officers
             </Button>
           </Link>
-          <Link href="/privacy">
-            <Button variant="outline" className="text-[#2973B2] border-[#48A6A7] hover:text-black hover:bg-[#9ACBD0]/90">
-              Privacy
-            </Button>
-          </Link>
           <Link href="/credits">
             <Button variant="outline" className="text-[#2973B2] border-[#48A6A7] hover:text-black hover:bg-[#9ACBD0]/90">
               Credits

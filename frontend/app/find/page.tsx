@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import {Send, AlertCircle, Sun, Moon } from "lucide-react"
+import { Send, AlertCircle, Sun, Moon, Loader } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import OfficerCard from "@/components/officer-card"
 import CommandSuggestions from "@/components/command-suggestions"
@@ -39,7 +39,6 @@ export default function FindPage() {
     },
   ])
   const [input, setInput] = useState("")
-  const [isRecording, setIsRecording] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [showCommandSuggestions, setShowCommandSuggestions] = useState(false)
@@ -47,8 +46,6 @@ export default function FindPage() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null)
-  const audioChunksRef = useRef<Blob[]>([])
 
   const commands = [
     { command: "/about", description: "Show information about us" },
@@ -132,7 +129,7 @@ export default function FindPage() {
     setError(null)
 
     try {
-      const response = await fetch("http://localhost:5000/match-officer", {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL!, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -246,61 +243,59 @@ export default function FindPage() {
     setInput("")
   }
 
-  const startRecording = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      mediaRecorderRef.current = new MediaRecorder(stream)
-      audioChunksRef.current = []
+  // const startRecording = async () => {
+  //   try {
+  //     const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+  //     mediaRecorderRef.current = new MediaRecorder(stream)
+  //     audioChunksRef.current = []
 
-      mediaRecorderRef.current.ondataavailable = (event) => {
-        audioChunksRef.current.push(event.data)
-      }
+  //     mediaRecorderRef.current.ondataavailable = (event) => {
+  //       audioChunksRef.current.push(event.data)
+  //     }
 
-      mediaRecorderRef.current.onstop = async () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" })
-        setIsLoading(true)
+  //     mediaRecorderRef.current.onstop = async () => {
+  //       setIsLoading(true)
 
-        try {
-          // Simulate speech-to-text processing
-          await new Promise((resolve) => setTimeout(resolve, 1500))
+  //       try {
+  //         await new Promise((resolve) => setTimeout(resolve, 1500))
 
-          // Simulated text from audio
-          const transcribedText = "Armed robbery at First National Bank on Main Street. Two suspects with handguns."
+  //         // Simulated text from audio
+  //         const transcribedText = "Armed robbery at First National Bank on Main Street. Two suspects with handguns."
 
-          setInput(transcribedText)
-          setIsLoading(false)
-        } catch (error) {
-          console.error("Error processing audio:", error)
-          setError("Failed to process audio. Please try again.")
-          setIsLoading(false)
-        }
+  //         setInput(transcribedText)
+  //         setIsLoading(false)
+  //       } catch (error) {
+  //         console.error("Error processing audio:", error)
+  //         setError("Failed to process audio. Please try again.")
+  //         setIsLoading(false)
+  //       }
 
-        // Stop all audio tracks
-        stream.getTracks().forEach((track) => track.stop())
-      }
+  //       // Stop all audio tracks
+  //       stream.getTracks().forEach((track) => track.stop())
+  //     }
 
-      mediaRecorderRef.current.start()
-      setIsRecording(true)
-    } catch (error) {
-      console.error("Error accessing microphone:", error)
-      setError("Could not access microphone. Please check permissions.")
-    }
-  }
+  //     mediaRecorderRef.current.start()
+  //     setIsRecording(true)
+  //   } catch (error) {
+  //     console.error("Error accessing microphone:", error)
+  //     setError("Could not access microphone. Please check permissions.")
+  //   }
+  // }
 
-  const stopRecording = () => {
-    if (mediaRecorderRef.current && isRecording) {
-      mediaRecorderRef.current.stop()
-      setIsRecording(false)
-    }
-  }
+  // const stopRecording = () => {
+  //   if (mediaRecorderRef.current && isRecording) {
+  //     mediaRecorderRef.current.stop()
+  //     setIsRecording(false)
+  //   }
+  // }
 
-  const toggleRecording = () => {
-    if (isRecording) {
-      stopRecording()
-    } else {
-      startRecording()
-    }
-  }
+  // const toggleRecording = () => {
+  //   if (isRecording) {
+  //     stopRecording()
+  //   } else {
+  //     startRecording()
+  //   }
+  // }
 
   const { theme, setTheme } = useTheme()
 
@@ -364,11 +359,9 @@ export default function FindPage() {
 
               {isLoading && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                  <div className="message-bubble bot-message">
-                    <div className="typing-animation">
-                      <span></span>
-                      <span></span>
-                      <span></span>
+                  <div className="bot-message">
+                    <div className="flex items-center space-x-2">
+                      <Loader className="h-5 w-5 animate-spin" />
                     </div>
                   </div>
                 </motion.div>

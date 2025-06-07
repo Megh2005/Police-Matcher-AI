@@ -33,19 +33,19 @@ export default function CreditsPage() {
                 <div className="bg-[#9ACBD0]/10 dark:bg-[#48A6A7]/10 p-4 rounded-lg">
                   <h3 className="font-semibold text-lg mb-2">Development Team</h3>
                   <ul className="space-y-2">
-                    <li>Jane Doe - Lead Developer</li>
-                    <li>John Smith - UI/UX Designer</li>
-                    <li>Alex Johnson - Backend Engineer</li>
-                    <li>Maria Garcia - AI Specialist</li>
+                    <li>Megh Deb</li>
+                    <li>Sayambar Roychowdhury</li>
+                    <li>Subham Mani</li>
+                    <li>Ronit Bose</li>
                   </ul>
                 </div>
                 <div className="bg-[#9ACBD0]/10 dark:bg-[#48A6A7]/10 p-4 rounded-lg">
                   <h3 className="font-semibold text-lg mb-2">Advisory Board</h3>
                   <ul className="space-y-2">
-                    <li>Capt. Robert Wilson - Police Consultant</li>
-                    <li>Dr. Emily Chen - Data Science Advisor</li>
-                    <li>James Taylor - Security Specialist</li>
-                    <li>Sarah Williams - Legal Advisor</li>
+                    <li>Prof. (Dr.) Santanu Roy</li>
+                    <li>Prof. (Dr.) Soumya Sen</li>
+                    <li>Sreedatri Das</li>
+                    <li>Bappa Sarder</li>
                   </ul>
                 </div>
               </div>
@@ -61,7 +61,6 @@ export default function CreditsPage() {
                   <h3 className="font-semibold text-lg mb-2">Frontend</h3>
                   <ul className="space-y-1 text-sm">
                     <li>Next.js</li>
-                    <li>React</li>
                     <li>Tailwind CSS</li>
                     <li>Lucide Icons</li>
                   </ul>
@@ -69,7 +68,6 @@ export default function CreditsPage() {
                 <div className="bg-[#9ACBD0]/10 dark:bg-[#48A6A7]/10 p-4 rounded-lg">
                   <h3 className="font-semibold text-lg mb-2">Backend</h3>
                   <ul className="space-y-1 text-sm">
-                    <li>Node.js</li>
                     <li>Express</li>
                     <li>MongoDB</li>
                     <li>Gemini 2.0 Flash</li>
@@ -78,7 +76,6 @@ export default function CreditsPage() {
                 <div className="bg-[#9ACBD0]/10 dark:bg-[#48A6A7]/10 p-4 rounded-lg">
                   <h3 className="font-semibold text-lg mb-2">Tools</h3>
                   <ul className="space-y-1 text-sm">
-                    <li>VS Code</li>
                     <li>Git & GitHub</li>
                     <li>Figma</li>
                     <li>Vercel</li>
@@ -86,13 +83,6 @@ export default function CreditsPage() {
                 </div>
               </div>
             </section>
-          </div>
-
-          <div className="mt-10 pt-6 border-t border-[#9ACBD0] dark:border-[#48A6A7] text-center">
-            <p className="text-lg">
-              Made with <span className="text-red-500">❤</span> by the TJP Team
-            </p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">© 2025 TJP - All rights reserved</p>
           </div>
         </div>
       </motion.div>

@@ -112,9 +112,9 @@ export default function Home() {
               <div className="bg-[#9ACBD0]/20 dark:bg-[#48A6A7]/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                 <MessageSquare className="h-7 w-7 text-[#2973B2]" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-[#2973B2]">Voice & Text Input</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#2973B2]">Text Input</h3>
               <p className="text-zinc-700 dark:text-zinc-300">
-                Describe your case using text or voice commands for a seamless experience.
+                Describe your case using text commands for a seamless experience.
               </p>
             </motion.div>
 
