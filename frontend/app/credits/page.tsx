@@ -45,7 +45,6 @@ export default function CreditsPage() {
                     <li>Prof. (Dr.) Santanu Roy</li>
                     <li>Prof. (Dr.) Soumya Sen</li>
                     <li>Sreedatri Das</li>
-                    <li>Bappa Sarder</li>
                   </ul>
                 </div>
               </div>

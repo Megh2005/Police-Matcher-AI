@@ -311,7 +311,7 @@ export default function FindPage() {
           <div className="p-4 bg-[#2973B2] text-white flex justify-between items-center">
             <div>
               <h2 className="text-xl font-semibold">Police Officer Matching System</h2>
-              <p className="text-sm opacity-80">Describe your case to find the right officers</p>
+              <p className="text-sm opacity-80">Describe your case in at least 30 characters to find the right officers</p>
             </div>
             <Button
               variant="ghost"
@@ -389,8 +389,9 @@ export default function FindPage() {
               <Textarea
                 ref={textareaRef}
                 value={input}
+                title="At least 30 characters required"
                 onChange={handleInputChange}
-                placeholder="Describe your case or type / for commands..."
+                placeholder="Describe your case in at least 30 charcters"
                 className="resize-none border-[#9ACBD0] dark:border-[#48A6A7] focus:ring-[#2973B2] min-h-[80px] rounded-lg shadow-sm"
                 rows={5}
               />

@@ -114,7 +114,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-3 text-[#2973B2]">Text Input</h3>
               <p className="text-zinc-700 dark:text-zinc-300">
-                Describe your case using text commands for a seamless experience.
+                Describe your case using text of 30+ charcters for a seamless experience.
               </p>
             </motion.div>
 
